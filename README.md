@@ -2,6 +2,10 @@
 
 # 09 Node.js Homework: Professional README Generator
 
+## Description
+
+This is a node.js application that prompts users for input and generates a README.md file from the user input.
+
 ## Your Task
 
 When creating an open source project on GitHub, it’s important to have a high-quality README for the app. This should include what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions&mdash;this last part increases the likelihood that other developers will contribute to the success of the project. 
@@ -46,6 +50,15 @@ THEN this is added to the section of the README entitled Questions, with instruc
 WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 ```
+## Installation
+
+npm init
+npm install inquirer
+
+## Usage
+
+Run command: node index.js in command line.
+
 
 ## Getting Started
 
