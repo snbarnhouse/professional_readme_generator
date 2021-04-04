@@ -9,9 +9,9 @@
   "author": "Stephanie Barnhouse",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "inquirer": "^6.5.2"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snbarnhouse/professional_readme_generator.git"
