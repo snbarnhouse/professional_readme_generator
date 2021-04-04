@@ -3,6 +3,9 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 
+const api = require("./utils/api.js");
+const generateMarkdown = require();
+
 // TODO: Create an array of questions for user input
 const questions = [
     //GitHub username with validation
@@ -102,8 +105,31 @@ function writeToFile(fileName, data) {
     });
 }
 
+const writeFileAsync = util.promisify(writeToFile);
+
 // TODO: Create a function to initialize app
-function init() {}
+async function init() {
+    try {
+    const userResponses = await inquirer.prompt(questions);
+        console.log("Your responses: ", userResponses);
+        console.log("Your responses have been logged. Calling to GitHub...");
+
+        // Referencing API.js
+        const userInfo = await api.getUser(userResponses);
+        console.log("Your GitHub user info: ", userInfo);
+
+        // Pass inquirer data and api data to markdown
+        console.log("Generating your information")
+        const markdown = generateMarkdown(userResponses, userInfo);
+        console.log(markdown);
+
+        // Write markdown
+        await writeFileAsync('ExampleREADME.md', markdown);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 // Function call to initialize app
 init();
