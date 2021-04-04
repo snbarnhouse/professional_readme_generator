@@ -3,8 +3,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 
-const api = require("./utils/api.js");
-const generateMarkdown = require();
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -13,67 +12,62 @@ const questions = [
         type: "input",
         name: "username",
         message: "Please enter GitHub username.",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log ("Must enter GitHub username.");
-            }
-            return true;
-        }
+        // validate: function (answer) {
+        //     if (answer.length < 1) {
+        //         return console.log ("Must enter GitHub username.");
+        //     }
+        //     return true;
+        // }
     },
     //Repository name with validation
     {
         type: "input",
         name: "repository",
         message: "Please enter the name of your GitHub repository.",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log ("Must enter GitHub repository name.");
-            }
-            return true;
-        }
+        // validate: function (answer) {
+        //     if (answer.length < 1) {
+        //         return console.log ("Must enter GitHub repository name.");
+        //     }
+        //     return true;
+        // }
     },
     //Project title with validation
     {
         type: "input",
         name: "title",
         message: "Please enter your project title.",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log ("Must enter project title.");
-            }
-            return true;
-        }
+        // validate: function (answer) {
+        //     if (answer.length < 1) {
+        //         return console.log ("Must enter project title.");
+        //     }
+        //     return true;
+        // }
     },
     //Description of project with validation
     {
         type: "input",
         name: "description",
         message: "Please enter the description of your project.",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log ("Must enter dexription of project.");
-            }
-            return true;
-        }
+        // validate: function (answer) {
+        //     if (answer.length < 1) {
+        //         return console.log ("Must enter description of project.");
+        //     }
+        //     return true;
+        // }
     },
     //Installations needed with validation
     {
         type: "input",
         name: "installation",
         message: "Please enter any needed installations.",
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log ("Must enter any needed installations.");
-            }
-            return true;
-        }
+        default: "npm i",
     },
     //License for project with choices
     {
         type: "input",
         name: "license",
         message: "Choose your license for your project.",
-        choices: ["apache-2.0", "booset-software", "bsd-3-clause", "bsd-2-clause"],
+        choices: ["apache-2.0", "booset-software", "bsd-3-clause", "bsd-2-clause", "MIT", "none"],
     },
     //Projects instructions and examples
     {
@@ -96,16 +90,11 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    false.writeToFile(fileName, data, err => {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("Your file has been created.")
-    });
-}
 
-const writeFileAsync = util.promisify(writeToFile);
+
+function writeToFile(fileName, data) {
+    fs.writeFileSync(fileName, data);
+}
 
 // TODO: Create a function to initialize app
 async function init() {
@@ -115,16 +104,16 @@ async function init() {
         console.log("Your responses have been logged. Calling to GitHub...");
 
         // Referencing API.js
-        const userInfo = await api.getUser(userResponses);
-        console.log("Your GitHub user info: ", userInfo);
+        // const userInfo = await api.getUser(userResponses);
+        // console.log("Your GitHub user info: ", userInfo);
 
         // Pass inquirer data and api data to markdown
         console.log("Generating your information")
-        const markdown = generateMarkdown(userResponses, userInfo);
+        const markdown = generateMarkdown(userResponses);
         console.log(markdown);
 
         // Write markdown
-        await writeFileAsync('ExampleREADME.md', markdown);
+        await writeToFile('ExampleREADME.md', markdown);
 
     } catch (error) {
         console.log(error);

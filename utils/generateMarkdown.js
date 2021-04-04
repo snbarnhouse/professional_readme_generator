@@ -1,5 +1,5 @@
 // Generate markdown for README
-function generateMarkdown(userResponses, userInfo) {
+function generateMarkdown(userResponses) {
 
   //userReponses in table of contents
   let draftTable = `## Table of Contents`;
@@ -20,7 +20,7 @@ function generateMarkdown(userResponses, userInfo) {
   // Generate badges for each
   let draftMarkdown = 
   `# ${userResponses.title}
-  ![Badge for GitHub](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repository}?style=flat&logo=appveyor) 
+  ![Badge for GitHub](https://img.shields.io/badge/license-${userResponses.license}-brightgreen) 
   
   
   ## Description 
@@ -98,20 +98,19 @@ function generateMarkdown(userResponses, userInfo) {
   
   ## Questions?
   
-  ![Developer Profile Picture](${userInfo.avatar_url}) 
   
   For any questions, please contact me with the information below:
  
-  GitHub: [@${userInfo.login}](${userInfo.url})
+  
   `;
 
   //If GitHub email is not null, add to Developer section
-  if (userInfo.email !== null) {
+  // if (email !== null) {
   
-  draftDeveloper +=
-  `
-  Email: ${userInfo.email}
-  `};
+  // draftDeveloper +=
+  // `
+  // // Email: ${email}
+  // // `};
 
  //Developer section
   draftMarkdown += draftDeveloper;
