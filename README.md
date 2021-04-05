@@ -7,7 +7,8 @@
 This is a node.js application that prompts users for input and generates a README.md file from the user input. 
 
 Repository: https://github.com/snbarnhouse/professional_readme_generator 
-Tutorial: 
+
+Tutorial: https://drive.google.com/file/d/1h98smD3_9z-GvCXtuodXLJo7cSaL-Vdf/view?usp=sharing 
 
 
 ![readme_generator](https://user-images.githubusercontent.com/77131387/113635927-85fd2d00-963f-11eb-98cc-3c84f8436825.png)

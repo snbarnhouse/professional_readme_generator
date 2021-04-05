@@ -1,11 +1,11 @@
-# ddd
-  ![Badge for GitHub](https://img.shields.io/badge/license-ddd-brightgreen) 
+# readme generator
+  ![Badge for GitHub](https://img.shields.io/badge/license-1.0-brightgreen) 
   
   
   ## Description 
   
   
-  ddd
+  A professional readme generator.
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -16,24 +16,24 @@
   ## Installation
   
   
-  ddd
+  npm i
   
   ## Usage 
   
    
-  ddd
+  Input information to generate a readme file.
   
   ## Tests
   
   
-  ddd
+  See examples.
   
   ## License
   
-  ddd
+  1.0
   
   
   ## Contact
 
-  Email: ddd
+  Email: snbarnhouse@yahoo.com
   
