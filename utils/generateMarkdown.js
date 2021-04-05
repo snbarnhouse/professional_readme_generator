@@ -10,8 +10,8 @@ function generateMarkdown(userResponses) {
   if (userResponses.usage !== '') { draftTable += `
   * [Usage](#usage)` };
 
-  if (userResponses.contributing !== '') { draftTable += `
-  * [Contributing](#contributing)` };
+  if (userResponses.contact !== '') { draftTable += `
+  * [Contact Information](#contact)` };
 
   if (userResponses.tests !== '') { draftTable += `
   * [Tests](#tests)` };
@@ -60,15 +60,6 @@ function generateMarkdown(userResponses) {
   ${userResponses.usage}`
   };
   
-  //Contribution section
-  if (userResponses.contributing !== '') {
-  `
-  
-  ## Contributing
-  
-  
-  ${userResponses.contributing}`
-  };
 
   //Tests section
   if (userResponses.tests !== '') {
@@ -95,7 +86,7 @@ function generateMarkdown(userResponses) {
   draftMarkdown +=
   `
   
-  ##Contact
+  ## Contact
 
   Email: ${userResponses.contact}
   `;
