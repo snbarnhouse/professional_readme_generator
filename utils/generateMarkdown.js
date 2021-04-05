@@ -16,8 +16,8 @@ function generateMarkdown(userResponses) {
   if (userResponses.tests !== '') { draftTable += `
   * [Tests](#tests)` };
   
-  // Create title and description
-  // Generate badges for each
+  //Title and description
+  //Generate badges
   let draftMarkdown = 
   `# ${userResponses.title}
   ![Badge for GitHub](https://img.shields.io/badge/license-${userResponses.license}-brightgreen) 
@@ -28,10 +28,10 @@ function generateMarkdown(userResponses) {
   
   ${userResponses.description}
   `
-  //Add table of contents
+  //Table of contents
   draftMarkdown += draftTable;
   
-  //Add license section
+  //License section
   draftMarkdown += `
   * [License](#license)`;
 
@@ -91,29 +91,14 @@ function generateMarkdown(userResponses) {
   ${userResponses.license}
   `;
 
-  //Questions section
-  let draftDeveloper = 
+  //Contact
+  draftMarkdown +=
   `
-  ---
   
-  ## Questions?
-  
-  
-  For any questions, please contact me with the information below:
- 
-  
+  ##Contact
+
+  Email: ${userResponses.contact}
   `;
-
-  //If GitHub email is not null, add to Developer section
-  // if (email !== null) {
-  
-  // draftDeveloper +=
-  // `
-  // // Email: ${email}
-  // // `};
-
- //Developer section
-  draftMarkdown += draftDeveloper;
 
   //Return input
   return draftMarkdown;

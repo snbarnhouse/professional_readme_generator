@@ -7,55 +7,31 @@ const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
 const questions = [
-    //GitHub username with validation
+    //GitHub username
     {
         type: "input",
         name: "username",
         message: "Please enter GitHub username.",
-        // validate: function (answer) {
-        //     if (answer.length < 1) {
-        //         return console.log ("Must enter GitHub username.");
-        //     }
-        //     return true;
-        // }
     },
-    //Repository name with validation
+    //Repository name
     {
         type: "input",
         name: "repository",
         message: "Please enter the name of your GitHub repository.",
-        // validate: function (answer) {
-        //     if (answer.length < 1) {
-        //         return console.log ("Must enter GitHub repository name.");
-        //     }
-        //     return true;
-        // }
     },
-    //Project title with validation
+    //Project title
     {
         type: "input",
         name: "title",
         message: "Please enter your project title.",
-        // validate: function (answer) {
-        //     if (answer.length < 1) {
-        //         return console.log ("Must enter project title.");
-        //     }
-        //     return true;
-        // }
     },
-    //Description of project with validation
+    //Description of project
     {
         type: "input",
         name: "description",
         message: "Please enter the description of your project.",
-        // validate: function (answer) {
-        //     if (answer.length < 1) {
-        //         return console.log ("Must enter description of project.");
-        //     }
-        //     return true;
-        // }
     },
-    //Installations needed with validation
+    //Installations needed
     {
         type: "input",
         name: "installation",
@@ -67,7 +43,7 @@ const questions = [
         type: "input",
         name: "license",
         message: "Choose your license for your project.",
-        choices: ["apache-2.0", "booset-software", "bsd-3-clause", "bsd-2-clause", "MIT", "none"],
+        choices: ["apache-2.0", "booset-software", "bsd-3-clause", "bsd-2-clause", "MIT"],
     },
     //Projects instructions and examples
     {
@@ -87,6 +63,12 @@ const questions = [
         name: "tests",
         message: "Please provide tests for project and how to use if applicable.",
     },
+    //Contact
+    {
+        type: "input",
+        name: "contact",
+        message: "Please provide your email address.",
+    },
 ];
 
 // TODO: Create a function to write README file
@@ -102,10 +84,6 @@ async function init() {
     const userResponses = await inquirer.prompt(questions);
         console.log("Your responses: ", userResponses);
         console.log("Your responses have been logged. Calling to GitHub...");
-
-        // Referencing API.js
-        // const userInfo = await api.getUser(userResponses);
-        // console.log("Your GitHub user info: ", userInfo);
 
         // Pass inquirer data and api data to markdown
         console.log("Generating your information")
