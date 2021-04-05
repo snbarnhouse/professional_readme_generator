@@ -57,10 +57,14 @@ WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 ```
 ## Installation
-
+```bash
 npm init
 npm install inquirer
-
+```
 ## Usage
 
-Run command: node index.js in command line.
+Run command: 
+```bash
+node index.js 
+```
+in command line.
